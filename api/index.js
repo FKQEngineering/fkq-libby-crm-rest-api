@@ -4,6 +4,7 @@ import auth from './auth'
 import passwordReset from './password-reset'
 import address from './address'
 import addressName from './addressName'
+import test from './test'
 
 const router = new Router()
 
@@ -35,5 +36,6 @@ router.use('/auth', auth)
 router.use('/password-resets', passwordReset)
 router.use('/addresses', address)
 router.use('/addressNames', addressName)
+router.use('/tests', test)
 
 export default router
