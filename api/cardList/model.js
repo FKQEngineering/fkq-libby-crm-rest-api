@@ -1,28 +1,19 @@
 import mongoose, { Schema } from 'mongoose'
 
-const addressSchema = new Schema({
-  street1: {
+const cardListSchema = new Schema({
+  name: {
     type: String
   },
-  street2: {
+  quantity: {
     type: String
   },
-  city: {
+  cardListType: {
     type: String
   },
-  state: {
+  cardListTypeId: {
     type: String
   },
-  zip: {
-    type: String
-  },
-  country: {
-    type: String
-  },
-  note: {
-    type: String
-  },
-  createddate: {
+  createDate: {
     type: Date
   },
   createdBy: {
@@ -31,16 +22,13 @@ const addressSchema = new Schema({
   modifiedDate: {
     type: Date
   },
-  modifiedBy: {
+  modifiedby: {
     type: String
   },
   isDeleted: {
     type: String
   },
   deleteComment: {
-    type: String
-  },
-  isDefault: {
     type: String
   }
 }, {
@@ -51,25 +39,21 @@ const addressSchema = new Schema({
   }
 })
 
-addressSchema.methods = {
+cardListSchema.methods = {
   view (full) {
     const view = {
       // simple view
       id: this.id,
-      street1: this.street1,
-      street2: this.street2,
-      city: this.city,
-      state: this.state,
-      zip: this.zip,
-      country: this.country,
-      note: this.note,
-      createddate: this.createddate,
+      name: this.name,
+      quantity: this.quantity,
+      cardListType: this.cardListType,
+      cardListTypeId: this.cardListTypeId,
+      createDate: this.createDate,
       createdBy: this.createdBy,
       modifiedDate: this.modifiedDate,
       modifiedBy: this.modifiedBy,
       isDeleted: this.isDeleted,
       deleteComment: this.deleteComment,
-      isDefault: this.isDefault,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt
     }
@@ -81,7 +65,7 @@ addressSchema.methods = {
   }
 }
 
-const model = mongoose.model('Address', addressSchema)
+const model = mongoose.model('CardList', cardListSchema)
 
 export const schema = model.schema
 export default model

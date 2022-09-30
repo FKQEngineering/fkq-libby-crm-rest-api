@@ -1,41 +1,12 @@
 import mongoose, { Schema } from 'mongoose'
 
-const addressNameSchema = new Schema({
-  name: {
-    type: String
-  },
-  createddate: {
-    type: Date
-  },
-  createdBy: {
-    type: String
-  },
-  modifiedDate: {
-    type: Date
-  },
-  modifiedby: {
-    type: String
-  },
-  isDeleted: {
-    type: String
-  },
-  deleteComment: {
-    type: String
-  }
-}, {
-  timestamps: true,
-  toJSON: {
-    virtuals: true,
-    transform: (obj, ret) => { delete ret._id }
-  }
-})
+const relationshipSchema = new Schema({}, { timestamps: true })
 
-addressNameSchema.methods = {
+relationshipSchema.methods = {
   view (full) {
     const view = {
       // simple view
       id: this.id,
-      name: this.name,
       createddate: this.createddate,
       createdBy: this.createdBy,
       modifiedDate: this.modifiedDate,
@@ -53,7 +24,7 @@ addressNameSchema.methods = {
   }
 }
 
-const model = mongoose.model('AddressName', addressNameSchema)
+const model = mongoose.model('Relationship', relationshipSchema)
 
 export const schema = model.schema
 export default model

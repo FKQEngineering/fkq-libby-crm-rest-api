@@ -3,7 +3,7 @@ import { Address } from '.'
 let address
 
 beforeEach(async () => {
-  address = await Address.create({ street1: 'test', street2: 'test', city: 'test', state: 'test', zip: 'test', country: 'test', note: 'test', createddate: 'test', createdBy: 'test', modificedDate: 'test', modifiedBy: 'test', isDeleted: 'test', deleteComment: 'test', isDefault: 'test' })
+  address = await Address.create({ street1: 'test', street2: 'test', city: 'test', state: 'test', zip: 'test', country: 'test', note: 'test', createddate: 'test', createdBy: 'test', modifiedDate: 'test', modifiedBy: 'test', isDeleted: 'test', deleteComment: 'test', isDefault: 'test' })
 })
 
 describe('view', () => {
@@ -20,7 +20,7 @@ describe('view', () => {
     expect(view.note).toBe(address.note)
     expect(view.createddate).toBe(address.createddate)
     expect(view.createdBy).toBe(address.createdBy)
-    expect(view.modificedDate).toBe(address.modificedDate)
+    expect(view.modifiedDate).toBe(address.modifiedDate)
     expect(view.modifiedBy).toBe(address.modifiedBy)
     expect(view.isDeleted).toBe(address.isDeleted)
     expect(view.deleteComment).toBe(address.deleteComment)
@@ -42,7 +42,7 @@ describe('view', () => {
     expect(view.note).toBe(address.note)
     expect(view.createddate).toBe(address.createddate)
     expect(view.createdBy).toBe(address.createdBy)
-    expect(view.modificedDate).toBe(address.modificedDate)
+    expect(view.modifiedDate).toBe(address.modifiedDate)
     expect(view.modifiedBy).toBe(address.modifiedBy)
     expect(view.isDeleted).toBe(address.isDeleted)
     expect(view.deleteComment).toBe(address.deleteComment)

@@ -6,7 +6,7 @@ import { schema } from './model'
 export Address, { schema } from './model'
 
 const router = new Router()
-const { street1, street2, city, state, zip, country, note, createddate, createdBy, modificedDate, modifiedBy, isDeleted, deleteComment, isDefault } = schema.tree
+const { street1, street2, city, state, zip, country, note, createddate, createdBy, modifiedDate, modifiedBy, isDeleted, deleteComment, isDefault } = schema.tree
 
 /**
  * @api {post} /addresses Create address
@@ -31,7 +31,7 @@ const { street1, street2, city, state, zip, country, note, createddate, createdB
  * @apiError 404 Address not found.
  */
 router.post('/',
-  body({ street1, street2, city, state, zip, country, note, createddate, createdBy, modificedDate, modifiedBy, isDeleted, deleteComment, isDefault }),
+  body({ street1, street2, city, state, zip, country, note, createddate, createdBy, modifiedDate, modifiedBy, isDeleted, deleteComment, isDefault }),
   create)
 
 /**
@@ -81,7 +81,7 @@ router.get('/:id',
  * @apiError 404 Address not found.
  */
 router.put('/:id',
-  body({ street1, street2, city, state, zip, country, note, createddate, createdBy, modificedDate, modifiedBy, isDeleted, deleteComment, isDefault }),
+  body({ street1, street2, city, state, zip, country, note, createddate, createdBy, modifiedDate, modifiedBy, isDeleted, deleteComment, isDefault }),
   update)
 
 /**

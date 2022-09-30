@@ -1,26 +1,32 @@
 import mongoose, { Schema } from 'mongoose'
 
-const addressSchema = new Schema({
-  street1: {
+const contactSchema = new Schema({
+  firstName: {
     type: String
   },
-  street2: {
+  middleName: {
     type: String
   },
-  city: {
+  lastName: {
     type: String
   },
-  state: {
+  hireDate: {
+    type: Date
+  },
+  title: {
     type: String
   },
-  zip: {
+  company: {
     type: String
   },
-  country: {
+  department: {
     type: String
   },
-  note: {
+  notes: {
     type: String
+  },
+  gender:{
+    type:String
   },
   createddate: {
     type: Date
@@ -31,16 +37,13 @@ const addressSchema = new Schema({
   modifiedDate: {
     type: Date
   },
-  modifiedBy: {
+  modifiedby: {
     type: String
   },
   isDeleted: {
     type: String
   },
   deleteComment: {
-    type: String
-  },
-  isDefault: {
     type: String
   }
 }, {
@@ -51,25 +54,26 @@ const addressSchema = new Schema({
   }
 })
 
-addressSchema.methods = {
+contactSchema.methods = {
   view (full) {
     const view = {
       // simple view
       id: this.id,
-      street1: this.street1,
-      street2: this.street2,
-      city: this.city,
-      state: this.state,
-      zip: this.zip,
-      country: this.country,
-      note: this.note,
+      firstName: this.firstName,
+      middleName: this.middleName,
+      lastName: this.lastName,
+      hireDate: this.hireDate,
+      title: this.title,
+      company: this.company,
+      department: this.department,
+      notes: this.notes,
+      gender:this.gender,
       createddate: this.createddate,
       createdBy: this.createdBy,
       modifiedDate: this.modifiedDate,
       modifiedBy: this.modifiedBy,
       isDeleted: this.isDeleted,
       deleteComment: this.deleteComment,
-      isDefault: this.isDefault,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt
     }
@@ -81,7 +85,7 @@ addressSchema.methods = {
   }
 }
 
-const model = mongoose.model('Address', addressSchema)
+const model = mongoose.model('Contact', contactSchema)
 
 export const schema = model.schema
 export default model

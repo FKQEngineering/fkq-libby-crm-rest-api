@@ -1,13 +1,25 @@
 import mongoose, { Schema } from 'mongoose'
 
-const testSchema = new Schema({
-  id: {
-    type: String
-  },
+const salutationSchema = new Schema({
   name: {
     type: String
   },
-  title: {
+  createddate: {
+    type: Date
+  },
+  createdBy: {
+    type: String
+  },
+  modifiedDate: {
+    type: Date
+  },
+  modifiedby: {
+    type: String
+  },
+  isDeleted: {
+    type: String
+  },
+  deleteComment: {
     type: String
   }
 }, {
@@ -18,14 +30,18 @@ const testSchema = new Schema({
   }
 })
 
-testSchema.methods = {
+salutationSchema.methods = {
   view (full) {
     const view = {
       // simple view
       id: this.id,
-      id: this.id,
       name: this.name,
-      title: this.title,
+      createddate: this.createddate,
+      createdBy: this.createdBy,
+      modifiedDate: this.modifiedDate,
+      modifiedBy: this.modifiedBy,
+      isDeleted: this.isDeleted,
+      deleteComment: this.deleteComment,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt
     }
@@ -37,7 +53,7 @@ testSchema.methods = {
   }
 }
 
-const model = mongoose.model('Test', testSchema)
+const model = mongoose.model('Salutation', salutationSchema)
 
 export const schema = model.schema
 export default model

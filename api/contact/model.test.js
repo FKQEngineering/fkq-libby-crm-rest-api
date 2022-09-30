@@ -1,0 +1,55 @@
+import { Contact } from '.'
+
+let contact
+
+beforeEach(async () => {
+  contact = await Contact.create({ firstName: 'test', middleName: 'test', lastName: 'test', hireDate: 'test', title: 'test', company: 'test', department: 'test', notes: 'test', gender:'test', createddate: 'test', createdBy: 'test', modifiedDate: 'test', modifiedBy: 'test', isDeleted: 'test', deleteComment: 'test'})
+})
+
+describe('view', () => {
+  it('returns simple view', () => {
+    const view = contact.view()
+    expect(typeof view).toBe('object')
+    expect(view.id).toBe(contact.id)
+    expect(view.firstName).toBe(contact.firstName)
+    expect(view.middleName).toBe(contact.middleName)
+    expect(view.lastName).toBe(contact.lastName)
+    expect(view.hireDate).toBe(contact.hireDate)
+    expect(view.title).toBe(contact.title)
+    expect(view.company).toBe(contact.company)
+    expect(view.department).toBe(contact.department)
+    expect(view.notes).toBe(contact.notes)
+    expect(view.gender).toBe(contact.gender)
+    expect(view.createddate).toBe(contact.createddate)
+    expect(view.createdBy).toBe(contact.createdBy)
+    expect(view.modifiedDate).toBe(contact.modifiedDate)
+    expect(view.modifiedBy).toBe(contact.modifiedBy)
+    expect(view.isDeleted).toBe(contact.isDeleted)
+    expect(view.deleteComment).toBe(contact.deleteComment)
+    expect(view.createdAt).toBeTruthy()
+    expect(view.updatedAt).toBeTruthy()
+  })
+
+  it('returns full view', () => {
+    const view = contact.view(true)
+    expect(typeof view).toBe('object')
+    expect(view.id).toBe(contact.id)
+    expect(view.firstName).toBe(contact.firstName)
+    expect(view.middleName).toBe(contact.middleName)
+    expect(view.lastName).toBe(contact.lastName)
+    expect(view.hireDate).toBe(contact.hireDate)
+    expect(view.title).toBe(contact.title)
+    expect(view.company).toBe(contact.company)
+    expect(view.department).toBe(contact.department)
+    expect(view.notes).toBe(contact.notes)
+    expect(view.gender).toBe(contact.gender)
+    expect(view.createddate).toBe(contact.createddate)
+    expect(view.createdBy).toBe(contact.createdBy)
+    expect(view.modifiedDate).toBe(contact.modifiedDate)
+    expect(view.modifiedBy).toBe(contact.modifiedBy)
+    expect(view.isDeleted).toBe(contact.isDeleted)
+    expect(view.deleteComment).toBe(contact.deleteComment)
+    expect(view.createdAt).toBeTruthy()
+    expect(view.updatedAt).toBeTruthy()
+  })
+})

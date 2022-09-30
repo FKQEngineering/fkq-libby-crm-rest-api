@@ -14,7 +14,7 @@ beforeEach(async () => {
 test('POST /addresses 201', async () => {
   const { status, body } = await request(app())
     .post(`${apiRoot}`)
-    .send({ street1: 'test', street2: 'test', city: 'test', state: 'test', zip: 'test', country: 'test', note: 'test', createddate: 'test', createdBy: 'test', modificedDate: 'test', modifiedBy: 'test', isDeleted: 'test', deleteComment: 'test', isDefault: 'test' })
+    .send({ street1: 'test', street2: 'test', city: 'test', state: 'test', zip: 'test', country: 'test', note: 'test', createddate: 'test', createdBy: 'test', modifiedDate: 'test', modifiedBy: 'test', isDeleted: 'test', deleteComment: 'test', isDefault: 'test' })
   expect(status).toBe(201)
   expect(typeof body).toEqual('object')
   expect(body.street1).toEqual('test')
@@ -26,7 +26,7 @@ test('POST /addresses 201', async () => {
   expect(body.note).toEqual('test')
   expect(body.createddate).toEqual('test')
   expect(body.createdBy).toEqual('test')
-  expect(body.modificedDate).toEqual('test')
+  expect(body.modifiedDate).toEqual('test')
   expect(body.modifiedBy).toEqual('test')
   expect(body.isDeleted).toEqual('test')
   expect(body.deleteComment).toEqual('test')
@@ -58,7 +58,7 @@ test('GET /addresses/:id 404', async () => {
 test('PUT /addresses/:id 200', async () => {
   const { status, body } = await request(app())
     .put(`${apiRoot}/${address.id}`)
-    .send({ street1: 'test', street2: 'test', city: 'test', state: 'test', zip: 'test', country: 'test', note: 'test', createddate: 'test', createdBy: 'test', modificedDate: 'test', modifiedBy: 'test', isDeleted: 'test', deleteComment: 'test', isDefault: 'test' })
+    .send({ street1: 'test', street2: 'test', city: 'test', state: 'test', zip: 'test', country: 'test', note: 'test', createddate: 'test', createdBy: 'test', modifiedDate: 'test', modifiedBy: 'test', isDeleted: 'test', deleteComment: 'test', isDefault: 'test' })
   expect(status).toBe(200)
   expect(typeof body).toEqual('object')
   expect(body.id).toEqual(address.id)
@@ -71,7 +71,7 @@ test('PUT /addresses/:id 200', async () => {
   expect(body.note).toEqual('test')
   expect(body.createddate).toEqual('test')
   expect(body.createdBy).toEqual('test')
-  expect(body.modificedDate).toEqual('test')
+  expect(body.modifiedDate).toEqual('test')
   expect(body.modifiedBy).toEqual('test')
   expect(body.isDeleted).toEqual('test')
   expect(body.deleteComment).toEqual('test')
@@ -81,7 +81,7 @@ test('PUT /addresses/:id 200', async () => {
 test('PUT /addresses/:id 404', async () => {
   const { status } = await request(app())
     .put(apiRoot + '/123456789098765432123456')
-    .send({ street1: 'test', street2: 'test', city: 'test', state: 'test', zip: 'test', country: 'test', note: 'test', createddate: 'test', createdBy: 'test', modificedDate: 'test', modifiedBy: 'test', isDeleted: 'test', deleteComment: 'test', isDefault: 'test' })
+    .send({ street1: 'test', street2: 'test', city: 'test', state: 'test', zip: 'test', country: 'test', note: 'test', createddate: 'test', createdBy: 'test', modifiedDate: 'test', modifiedBy: 'test', isDeleted: 'test', deleteComment: 'test', isDefault: 'test' })
   expect(status).toBe(404)
 })
 
