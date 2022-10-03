@@ -17,7 +17,7 @@ const cardListTypeSchema = new Schema({
     type: String
   },
   isDeleted: {
-    type: String
+    type: Boolean
   },
   deleteComment: {
     type: String
