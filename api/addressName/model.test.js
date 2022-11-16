@@ -3,7 +3,7 @@ import { AddressName } from '.'
 let addressName
 
 beforeEach(async () => {
-  addressName = await AddressName.create({ name: 'test', createddate: 'test', createdBy: 'test', modifiedDate.modifiedby: 'test', isDeleted: 'test', deleteComment: 'test' })
+  addressName = await AddressName.create({ name: 'test', createddate: 'test', createdBy: 'test', modifiedDate: 'test',mmodifiedby: 'test', isDeleted: 'test', deleteComment: 'test' })
 })
 
 describe('view', () => {
@@ -14,7 +14,8 @@ describe('view', () => {
     expect(view.name).toBe(addressName.name)
     expect(view.createddate).toBe(addressName.createddate)
     expect(view.createdBy).toBe(addressName.createdBy)
-    expect(view.modifiedDate.modifiedby).toBe(addressName.modifiedDate.modifiedby)
+    expect(view.modifiedDate).toBe(addressName.modifiedDate)
+    expect(view.modifiedby).toBe(addressName.modifiedby)
     expect(view.isDeleted).toBe(addressName.isDeleted)
     expect(view.deleteComment).toBe(addressName.deleteComment)
     expect(view.createdAt).toBeTruthy()
@@ -28,7 +29,8 @@ describe('view', () => {
     expect(view.name).toBe(addressName.name)
     expect(view.createddate).toBe(addressName.createddate)
     expect(view.createdBy).toBe(addressName.createdBy)
-    expect(view.modifiedDate.modifiedby).toBe(addressName.modifiedDate.modifiedby)
+    expect(view.modifiedDate).toBe(addressName.modifiedDate)
+    expect(view.modifiedby).toBe(addressName.modifiedby)
     expect(view.isDeleted).toBe(addressName.isDeleted)
     expect(view.deleteComment).toBe(addressName.deleteComment)
     expect(view.createdAt).toBeTruthy()

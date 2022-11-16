@@ -2,9 +2,10 @@ import request from 'supertest'
 import { apiRoot } from '../../config'
 import express from '../../services/express'
 import routes, { Suffix } from '.'
+import model from './model';
 
 const app = () => express(apiRoot, routes)
-
+const Match = require('./Match');
 let suffix
 
 beforeEach(async () => {
@@ -14,7 +15,7 @@ beforeEach(async () => {
 test('POST /suffixes 201', async () => {
   const { status, body } = await request(app())
     .post(`${apiRoot}`)
-    .send({ name: 'test', createddate: 'test', createdBy: 'test', modifiedDate: 'test', modifiedBy: 'test', isDeleted: 'test', deleteComment: 'test' })
+    .send({ name: 'test', createddate: 'test', createdBy: new mongo.Binary(user.id, 3), modifiedDate: 'test', modifiedBy: 'test', isDeleted: 'test', deleteComment: 'test' })
   expect(status).toBe(201)
   expect(typeof body).toEqual('object')
   expect(body.name).toEqual('test')

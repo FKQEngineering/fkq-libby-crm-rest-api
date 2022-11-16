@@ -7,6 +7,7 @@ import { env } from '../../config'
 const roles = ['user', 'admin']
 
 const userSchema = new Schema({
+
   email: {
     type: String,
     match: /^\S+@\S+\.\S+$/,
@@ -93,3 +94,5 @@ const model = mongoose.model('User', userSchema)
 
 export const schema = model.schema
 export default model
+
+

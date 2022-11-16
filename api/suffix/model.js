@@ -1,4 +1,4 @@
-import mongoose, { Schema } from 'mongoose'
+import mongoose, { mongo, Schema } from 'mongoose'
 
 const suffixSchema = new Schema({
   name: {
