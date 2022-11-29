@@ -1,7 +1,7 @@
 {
-  "name": "libby-crm-rest-api",
+  "name": "fkq-libby-crm-rest-api",
   "version": "0.0.0",
-  "main": ".",
+  "main": "src",
   "private": true,
   "scripts": {
     "start": "node .",
@@ -10,8 +10,8 @@
     "postcoverage": "opn coverage/lcov-report/index.html",
     "dev": "nodemon -i \"*.test.js\" .",
     "prod": "cross-env NODE_ENV=production nodemon -i \"*.test.js\" -r dotenv-safe/config .",
-    "lint": "eslint .",
-    "docs": "apidoc -i . -o docs && apidoc-markdown -p docs -o DOCS.md",
+    "lint": "eslint src",
+    "docs": "apidoc -i src -o docs && apidoc-markdown -p docs -o DOCS.md",
     "postdocs": "open-cli docs/index.html"
   },
   "jest": {
@@ -52,7 +52,6 @@
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "express-force-ssl": "^0.3.2",
     "mongoose": "^5.9.4",
     "mongoose-keywords": "^0.4.0",
     "morgan": "^1.9.1",
