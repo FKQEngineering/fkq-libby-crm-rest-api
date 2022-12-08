@@ -12,7 +12,7 @@ import phones from './phones'
 import relationships from './relationships'
 import salutations from './salutations'
 import suffixes from './suffixes'
-
+import user from './user';
 const router = new Router()
 
 router.use('/addresses', addresses)
@@ -28,6 +28,7 @@ router.use('/phones', phones)
 router.use('/relationships', relationships)
 router.use('/salutations', salutations)
 router.use('/suffixes', suffixes)
+router.use('/user', user)
 
 /**
  * @apiDefine master Master access only
