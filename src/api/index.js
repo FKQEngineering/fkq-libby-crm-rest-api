@@ -3,7 +3,6 @@ import addresses from './addresses'
 import cardLists from './cardLists'
 import cardListTypes from './cardListTypes'
 import companies from './companies'
-import contacts from './contacts'
 import emails from './emails'
 import eventDates from './eventDates'
 import genders from './genders'
@@ -13,13 +12,13 @@ import relationships from './relationships'
 import salutations from './salutations'
 import suffixes from './suffixes'
 import user from './user';
+import contacts from './contacts'
 const router = new Router()
 
 router.use('/addresses', addresses)
 router.use('/cardLists', cardLists)
 router.use('/cardListTypes', cardListTypes)
 router.use('/companies', companies)
-router.use('/contacts', contacts)
 router.use('/emails', emails)
 router.use('/eventDates', eventDates)
 router.use('/genders', genders)
@@ -29,6 +28,7 @@ router.use('/relationships', relationships)
 router.use('/salutations', salutations)
 router.use('/suffixes', suffixes)
 router.use('/user', user)
+router.use('/contacts', contacts)
 
 /**
  * @apiDefine master Master access only

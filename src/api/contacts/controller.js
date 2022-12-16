@@ -1,15 +1,32 @@
-import { success, notFound } from '../../services/response/'
-import { Contacts } from '.'
+import { success, notFound } from '../../services/response/';
+import Contacts from './model';
 
-export const create = ({ bodymen: { body } }, res, next) =>
-  Contacts.create(body)
-    .then((contacts) => contacts.view(true))
-    .then(success(res, 201))
-    .catch(next)
+export const create = async (req, res, next) => {
+  try {
+    await Contacts.create(req.body)
+      .then((newcontact) => {
+        return res.status(201).json({
+          success: true,
+          message: 'New contact created successfully',
+          Contacts: newcontact,
+        });
+      }).catch((error) => {
+        console.log(error, "err")
+        res.status(500).json({
+          success: false,
+          message: 'Server error. Please try again.',
+          error: error.message,
+        });
+      })
 
-export const index = ({ querymen: { query, select, cursor } }, res, next) =>
+  } catch (error) {
+    console.log(error, "err")
+  }
+}
+
+export const index = ({ querymen: { query, select } }, res, next) => {
   Contacts.count(query)
-    .then(count => Contacts.find(query, select, cursor)
+    .then(count => Contacts.find(query, select)
       .then((contacts) => ({
         count,
         rows: contacts.map((contacts) => contacts.view())
@@ -17,6 +34,7 @@ export const index = ({ querymen: { query, select, cursor } }, res, next) =>
     )
     .then(success(res))
     .catch(next)
+}
 
 export const show = ({ params }, res, next) =>
   Contacts.findById(params.id)
